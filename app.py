@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
+
 app = Flask(__name__)
 app.secret_key = "Katungu123"
 app.permanent_session_lifetime = datetime.timedelta(days=10)
@@ -43,7 +44,7 @@ def Home():
 			nam = users(name, "", "", "")
 			db.session.add(nam)
 			db.session.commit()
-
+# issue occurs at times when url for Thankyou is called
 		return redirect(url_for("Thankyou"))
 	else:
 		return render_template("Home.html")
